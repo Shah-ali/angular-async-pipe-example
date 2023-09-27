@@ -1,3 +1,3 @@
-# angular-11-new
+# angular-async-pipe-example
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-11-new-vmcgmx)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-async-pipe-example)
