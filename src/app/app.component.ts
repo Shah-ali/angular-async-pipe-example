@@ -1,25 +1,26 @@
-import { Component, OnInit, VERSION } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, VERSION } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataService } from './data.service';
 
 @Component({
   selector: 'my-app',
   template: `
-    <div>
-      <h2>Data Component</h2>
-      <p>Data: {{ data$ | async }}</p>
-    </div>
+    <p>Data: {{ data$ | async }}</p>
   `,
 })
 export class AppComponent implements OnInit {
   data$: Observable<string>;
+  myResult: any;
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.data$ = this.dataService.getData();
-    this.data$.subscribe((result) => {
-      console.log(result);
+    this.data$.subscribe((data) => {
+      console.log('Data received:', data);
     });
   }
 }
